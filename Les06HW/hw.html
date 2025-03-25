@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sem 04</title>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<h1>HW6</h1>
+
+		<p class="super_element">Привет</p>
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<img src="#" alt="" />
+		<br />
+		<button>Кнопка A</button>
+		<button class="super_element">Кнопка с классом btn</button>
+		<button>Кнопка B</button>
+		<br />
+		<textarea></textarea>
+		<br />
+		<ul>
+			<li>
+				<button>Кнопка 1</button>
+			</li>
+			<li>
+				<button>Кнопка 2</button>
+			</li>
+			<li>
+				<button>Кнопка 3</button>
+			</li>
+			<li>
+				<button>Кнопка 4</button>
+			</li>
+		</ul>
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				console.log("все теги прогрузились");
+			});
+			window.addEventListener("load", function (e) {
+				console.log("страница загрузилась");
+			});
+			document.body.addEventListener("click", function (e) {
+				const targetEl = e.target;
+				const tagName = targetEl.tagName.toLowerCase();
+				// console.log(targetEl);
+				if (targetEl.classList.contains("super_element")) {
+					console.log(`Класс "super_element" присутствует в элементе "${tagName}"`);
+				}
+			});
+
+			const textEl = document.querySelector("textarea");
+			textEl.addEventListener("mouseover", function (e) {
+				console.log("Вы навели на textarea");
+			});
+
+			const ulEl = document.querySelectorAll("ul");
+			ulEl.forEach((element) => {
+				element.addEventListener("click", function (e) {
+					if (e.target.tagName.toLowerCase() === "button") {
+						const tg = e.target;
+						console.log(tg.textContent);
+					}
+				});
+			});
+			const liEl = document.querySelectorAll("ul li");
+
+			liEl.forEach((element, index) => {
+				if (index % 2 === 1) {
+					element.style.backgroundColor = 'lightgrey';
+				}
+			});
+		</script>
+	</body>
+</html>
